@@ -1,6 +1,8 @@
-# isa8_ssd_ide
+# isa8_ssd_controller
 
-8-bit ISA card for XT and AT class PCs with **SATA ports for SSDs** that shows itself as an **XT-IDE compatible IDE controller**, so the XT-IDE Universal BIOS boots from it. Up to four SSDs in two channels.
+**8-Bit ISA SSD-Controller**
+
+8-bit ISA card for XT and AT class PCs with **SATA ports for SSDs**. Technically it is an **XT-IDE compatible IDE controller**, so the XT-IDE Universal BIOS boots from it. Up to four SSDs in two channels.
 
 **Status: concept.** Nothing has been built or tested yet.
 

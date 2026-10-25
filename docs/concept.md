@@ -1,11 +1,14 @@
-# isa8_ssd_ide – Concept
+# isa8_ssd_controller – Concept (8-Bit ISA SSD-Controller)
 
-Status: **concept 0.2 (2026-10-25)**. Nothing has been drawn, built or tested.
+Status: **concept 0.3 (2026-10-25)**. Nothing has been drawn, built or tested.
 Everything marked *assumption* is open until Stefan confirms it.
 
 Change from 0.1: "SSD" means **SATA SSDs** (Stefan, 2026-10-25), not SD cards.
 The microcontroller/microSD design of 0.1 is dropped (see §9). The own CD-ROM
 driver moves to the extension list for a later version (§8).
+
+Change from 0.2: renamed to "8-Bit ISA SSD-Controller" (Stefan, 2026-10-25);
+§1.1 explains that it is technically an IDE controller and what the SSDs need.
 
 ## 1. Goal
 
@@ -15,6 +18,29 @@ an **XT-IDE compatible IDE controller**, so the unmodified
 
 Later the same circuit is meant to become a **plug-on module or an optional
 population block of [isa8_multi_io](https://github.com/sfambach/isa8_multi_io)**.
+
+### 1.1 Technically an IDE controller
+
+The name says SSD controller; the card is an XT-IDE style IDE controller. The SSDs
+speak SATA, one converter per port translates. BIOS and DOS see plain IDE disks.
+Requirements for the SSDs:
+
+- **SATA I:** JM20330 converters are SATA 1.0 (1.5 Gbit/s). The SSD must link at
+  that speed; most newer SSDs fall back, not all. Older, small SSDs are safer.
+- **Legacy ATA PIO commands:** no DMA on this card; XUB uses classic PIO
+  read/write commands.
+- **Size:** DOS without INT 13h extensions sees about 8 GB, FAT16 partitions max
+  2 GB; 16–64 GB SSDs are plenty.
+- Some converter/SSD combinations are reported unreliable – test first.
+- Without a converter: real IDE SSDs, DOMs and CF cards on IDE adapters; a DOM with
+  a 40-pin female socket plugs directly onto a converter header.
+
+### 1.2 Shared parts
+
+GAL decoders, 74HCT245 data buffer and the 74HCT574 latches serve **both**
+channels. Two ATF22V10C are needed because one does not have enough inputs for
+the IDE and ROM address decoding; the 74HCT245 cannot be replaced by a GAL
+(8 bidirectional lines with ISA drive strength).
 
 ## 2. Two or four drives
 
@@ -142,7 +168,7 @@ flowchart LR
 
 ## 11. Open points
 
-1. Repo `sfambach/isa8_ssd_ide` must be created by Stefan (integration may not create repos).
+1. Repo `sfambach/isa8_ssd_controller` must be created by Stefan (integration may not create repos).
 2. Choose a converter model (female 40-pin, SATA port) and measure it for the header spacing.
 3. Test SATA SSD + converter on an existing XT-IDE in an XT first.
 4. Module header pinout with isa8_multi_io.
