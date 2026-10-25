@@ -153,6 +153,17 @@ flowchart LR
    Stefan: keep in mind for later, CDs were rarely used before DOS 6.22.
 2. Bridge chips on the card (option B).
 3. mSATA / M.2-SATA sockets instead of SATA ports (needs option B).
+4. **Setup menu in ROM** (Stefan, 2026-10-25, for all ISA projects): XUB has a
+   boot menu but no setup; it is configured and flashed by the DOS tool
+   XTIDECFG.COM. Kiselev's Multi-Floppy BIOS shows it can be done: built-in
+   setup that saves back into the EEPROM (hex dump fallback for UV EPROMs).
+   Plan: an own small option ROM module in the same 28C256 (own 55AAh header,
+   started by hotkey at boot) that edits the XUB configuration block, copies its
+   write routine to RAM (the EEPROM cannot be read during a write cycle), writes
+   with the write-enable DIP set and fixes the checksum. XUB itself stays
+   unmodified (GPL-2); the setup is own code. Risk: the XUB configuration layout
+   depends on the XUB version. Later idea: replace DIP switches by a config
+   latch so the setup can also set addresses ("soft DIP").
 
 ## 9. Dropped
 
