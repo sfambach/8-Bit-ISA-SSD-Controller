@@ -1,4 +1,4 @@
-# isa8_ssd_controller – Concept (8-Bit ISA SSD-Controller)
+# 8-Bit-ISA-SSD-Controller – Concept (8-Bit ISA SSD-Controller)
 
 Status: **concept 0.3 (2026-10-25)**. Nothing has been drawn, built or tested.
 Everything marked *assumption* is open until Stefan confirms it.
