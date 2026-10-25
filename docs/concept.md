@@ -142,6 +142,16 @@ flowchart LR
   D0–D7, A0–A9, AEN, IOR, IOW, IOCHRDY, RESET, one IRQ, +5 V, GND
   (~26 pins, 2×13). To be agreed with the Multi-IO design.
 - Alternative: populate the module circuit directly on the Multi-IO PCB.
+- Feedback from isa8_multi_io (2026-10-25, nothing decided there yet):
+  - Its IDE GAL offers only 300h/320h → with the module on 320h the Multi-IO
+    must be set to 300h (to be documented).
+  - Free GAL pins: `busctl` pin 23 (usable as input MODSEL), `iobase` pins 18–20.
+  - `busctl` BUFEN has 12 of 14 product terms; adding /MODSEL·/IOR and
+    /MODSEL·/IOW fits exactly. BUFDIR has room.
+  - Option: `iobase` pin 18 decodes /MODSEL for 320h–32Fh itself (A4–A9, AEN
+    available), but then no input is left for a module enable switch.
+  - Card bus D0–D7 is the B side of its 74HCT245; IOCHRDY and IRQ are not yet
+    used on the Multi-IO (IRQ2/IRQ5 free when LPT uses IRQ7).
 
 ## 7. Comparable projects
 
