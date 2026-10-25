@@ -22,10 +22,11 @@ Details: [docs/concept.md](docs/concept.md)
 - Documentation: CC BY-SA 4.0
 - XT-IDE Universal BIOS (GPL-2) – not included
 
+## Authors
+
+- **Stefan Fambach** (SteFam) – idea and concept, review and testing – https://www.fambach.net
+- **Claude** (Anthropic AI) – implementation, via Claude Code
+
 ## AI disclosure
 
-This project is developed with the help of AI (Claude by Anthropic). Design decisions and testing are done by Stefan Fambach.
-
-## Author
-
-Stefan Fambach (SteFam) – https://www.fambach.net
+This project is built with AI assistance. Stefan Fambach had the idea, wrote the concept and reviews and tests every change; the implementation (schematics, PCB and logic design files, firmware and documentation) is written largely by Claude (Anthropic) via Claude Code.
