@@ -185,7 +185,7 @@ flowchart LR
 
 ## 11. Open points
 
-1. Repo `sfambach/isa8_ssd_controller` must be created by Stefan (integration may not create repos).
+1. Repo `sfambach/8-Bit-ISA-SSD-Controller` must be created by Stefan (integration may not create repos).
 2. Choose a converter model (female 40-pin, SATA port) and measure it for the header spacing.
 3. Test SATA SSD + converter on an existing XT-IDE in an XT first.
 4. Module header pinout with isa8_multi_io.

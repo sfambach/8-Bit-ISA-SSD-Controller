@@ -1,4 +1,4 @@
-# isa8_ssd_controller
+# 8-Bit-ISA-SSD-Controller
 
 **8-Bit ISA SSD-Controller**
 
