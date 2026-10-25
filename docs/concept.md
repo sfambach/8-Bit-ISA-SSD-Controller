@@ -164,6 +164,12 @@ flowchart LR
    unmodified (GPL-2); the setup is own code. Risk: the XUB configuration layout
    depends on the XUB version. Later idea: replace DIP switches by a config
    latch so the setup can also set addresses ("soft DIP").
+5. **16-bit ISA variant** (Stefan asked, 2026-10-25): standard AT IDE
+   (1F0h/170h, IRQ 14/15, IOCS16, two 74HCT245, simple decoder) with the same
+   converter headers. Pros: much faster than 8-bit, standard AT BIOS and standard
+   CD-ROM drivers work. Con: 286 and up only. Proposal: own small board in this
+   repo, not a dual 8/16-bit card (a 16-bit edge often does not fit XT slots).
+   The 8-bit card also runs in 16-bit slots, only slower.
 
 ## 9. Dropped
 
