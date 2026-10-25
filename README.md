@@ -16,6 +16,10 @@
 
 Details: [docs/concept.md](docs/concept.md)
 
+## History
+
+- 2026-10-25: Idea from the [isa8_multi_io](https://github.com/sfambach/isa8_multi_io) work. First concept emulated drives from microSD with a Raspberry Pi Pico 2; dropped because "SSD" meant SATA SSDs. Now XT-IDE logic with plug-on IDE-to-SATA converters, two channels, up to four SSDs. The 16-bit sibling [16-Bit-ISA-SSD-Controller](https://github.com/sfambach/16-Bit-ISA-SSD-Controller) was split off the same day.
+
 ## License
 
 - Hardware: [CERN-OHL-S-2.0](LICENSE)
